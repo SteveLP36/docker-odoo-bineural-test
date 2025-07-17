@@ -5,7 +5,7 @@
         <model>account.move</model>
         <inherit_id ref="account.view_move_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='payment_reference']" position="after">
+            <xpath expr="//field[@name='vat']" position="after">
                 <field name="clasificacion_fiscal"/>
             </xpath>
         </field>
