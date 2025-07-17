@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
         <record id="view_move_form_inherit_clasificacion_fiscal" model="ir.ui.view">
             <name>account.move.form.inherit.clasificacion.fiscal</name>
             <model>account.move</model>
@@ -30,5 +29,4 @@
                 </xpath>
             </arch>
         </record>
-    </data>
 </odoo>
