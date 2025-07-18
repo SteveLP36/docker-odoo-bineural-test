@@ -1,12 +1,12 @@
 from odoo import models, fields
 
-class AcconuntMoveInherit(models.Model):
-    _inherit = 'acconunt.move'
+class AcconuntMoveInheritFiscal(models.Model):
+    _inherit = 'account.move'
 
-
-    clasficacion_fical = fields.Selection([
+    clasificacion_fiscal = fields.Selection([
         ('a', 'Clasificacion A'),
         ('b', 'Clasificacion B'),
         ('c', 'Clasificacion C')
-    ], defult='a', string='Clasficacion Fical', required=True)
+    ], default='a', string='Clasficacion Fical', required=True)
+
 
