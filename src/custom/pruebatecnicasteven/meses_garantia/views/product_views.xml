@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_template_form_view_inherit_guarantee" model="ir.ui.view">
+        <field name="name">product.template.form.inherit.guarantee</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='categ_id']" position="after">
+                <field name="guarantee_months"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_product_tree_view_inherit_guarantee" model="ir.ui.view">
+        <field name="name">product.product.tree.inherit.guarantee</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_product_tree_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='standard_price']" position="after">
+                <field name="guarantee_months" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_product_report_view_inherit_guarantee" model="ir.ui.view">
+        <field name="name">product.product.report.inherit.guarantee</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="stock.product_product_stock_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='free_qty']" position="after">
+                <field name="guarantee_months" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
