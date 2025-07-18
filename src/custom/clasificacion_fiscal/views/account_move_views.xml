@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_account_move_form_inherit_clasificacion_fiscal" model="ir.ui.view">
+            <field name="name">account.move.form.inherit.clasificacion.fiscal</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@id='header_right_group']/field[@name='currency_id']" position="after">
+                    <field name="clasificacion_fiscal"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_account_invoice_filter_inherit_clasificacion_fiscal" model="ir.ui.view">
+            <field name="name">account.invoice.filter.inherit.clasificacion.fiscal</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_account_invoice_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="clasificacion_fiscal" string="Clasificación Fiscal" filter_domain="[('clasificacion_fiscal','ilike',self)]"/>
+                </xpath>
+                <xpath expr="//filter[@name='draft']" position="after">
+                    <filter string="Clasificación A" name="filter_clasificacion_a" domain="[('clasificacion_fiscal','=','A')]"/>
+                    <filter string="Clasificación B" name="filter_clasificacion_b" domain="[('clasificacion_fiscal','=','B')]"/>
+                    <filter string="Clasificación C" name="filter_clasificacion_c" domain="[('clasificacion_fiscal','=','C')]"/>
+                </xpath>
+                <xpath expr="//group" position="inside">
+                    <filter name="group_by_clasificacion_fiscal" string="Clasificación Fiscal" context="{'group_by': 'clasificacion_fiscal'}"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+    
+</odoo>
